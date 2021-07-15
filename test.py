@@ -1,5 +1,5 @@
 import unittest
-from collections import Counter
+
 from faker     import Faker
 
 from functions import find_best_cache_size, simulate_cache
