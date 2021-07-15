@@ -1,7 +1,7 @@
 from simulator import CacheSimulator
 
 
-def simluate_cache():
+def simluate_cache() -> list:
     cache_size = int(input("Please enter maximum cache size : "))
     hit_time = int(input("Please enter cache hit time : "))
     miss_time = int(input("Please enter cache miss time : "))
@@ -17,18 +17,9 @@ def simluate_cache():
     return simulation_result
 
 
-def find_best_cache():
-    simluation_results = simluate_cache()
+def find_best_cache() -> int:
+    simulation_result = sorted(
+        simluate_cache(), key = lambda x: (x["runtime"], x["cache size"]))
 
-    min_runtime = min(simluation_results,
-                      key=lambda x: x["runtime"])["runtime"]
-
-    simluation_results = [
-        result for result in simluation_results if result["runtime"] == min_runtime]
-
-    simluation_results.sort(key=lambda x: x["cache size"])
-    smallest_cache_size = simluation_results[0]["cache size"]
-    return smallest_cache_size
-
-
-print("best cache size : ", find_best_cache())
+    best_cache_size = simulation_result[0]["cache size"]
+    return best_cache_size
