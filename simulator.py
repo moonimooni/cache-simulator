@@ -13,7 +13,7 @@ class CacheSimulator:
         if data in cache_map:
             self.hit_count += 1
             self.runtime += self.hit_time
-            # 찾은 데이터 삭제. 가장 앞으로 옮기기 위해.
+            # 찾은 데이터 삭제. 가장 뒤로 옮기기 위해.
             cache_used_order.remove(data)
 
         # 캐시에서 못찾은 경우
@@ -24,13 +24,13 @@ class CacheSimulator:
             # 캐시가 꽉 찼다면
             if len(cache_map) == cache_size:
                 # 가장 오랫동안 참조하지 않은 캐시 슬롯 데이터 삭제
-                deleted_data = cache_used_order.pop()
+                deleted_data = cache_used_order.popleft()
                 del cache_map[deleted_data]
 
         recent_data = data
-        # 현재 데이터를 링크드 리스트 가장 앞단에 배치. 가장 최근에 사용한 데이터라는 뜻.
-        cache_used_order.appendleft(recent_data)
-        cache_map[recent_data] = recent_data
+        # 현재 데이터를 링크드 리스트 가장 뒤에 배치. 가장 최근에 사용한 데이터라는 뜻.
+        cache_used_order.append(recent_data)
+        cache_map[recent_data] = True
         return
 
     def simulate(self, stocks, size):
