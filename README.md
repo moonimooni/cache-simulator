@@ -1,4 +1,13 @@
-#cache simulator
+# cache simulator
+
+## 파일 구성.
+
+__functions.py__ <br/>
+  - simulate_cache() --> 1부터 주어진 캐시 사이즈까지의 시뮬레이션 결과를 return. <br/>
+  - find_best_cache_size() --> simulate_cache() 결과를 기반으로 가장 합리적인 캐시 사이즈 return. <br/>
+
+__simulator.py__ --> 캐시 시뮬레이션을 구성하기 위한 클래스 파일.<br/>
+__test.py__ --> 테스트코드.
 
 ## Idea.
 
