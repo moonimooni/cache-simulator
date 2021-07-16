@@ -9,6 +9,8 @@ __functions.py__ <br/>
 __simulator.py__ --> 캐시 시뮬레이션을 구성하기 위한 클래스 파일.<br/>
 __test.py__ --> 테스트코드.
 
+<br/>
+
 ## Idea.
 
 초기 접근 : LRU을 구현하기 위해 Queue를 쓰는게 좋을 것 같다고 생각.<br/>
@@ -18,9 +20,17 @@ __test.py__ --> 테스트코드.
 cache 내에서 원하는 데이터를 찾는 과정 또한 O(n) 소요.<br/>
 이 시간을 줄이기 위해 hash map(dict)을 만들어놓고 현재 cache에 존재하는 데이터값을 key로 저장.<br/>
 
-<img src="https://github.com/moonimooni/images/blob/main/ezgif-2-f929d2977146.gif?raw=true" width=600>
+<img src="https://github.com/moonimooni/images/blob/main/ezgif-2-f929d2977146.gif?raw=true" width=600 />
 
 <br />
 
 ## 아쉬운 점
 - 테스트케이스에 hash map의 key들과 deque의 node들이 정말 일치하는지 증명하는 테스트가 필요하지 않을까? <br/>
+- hash map을 좀 더 적극적으로 활용할 수 있을 거 같은데, 왜냐하면 node를 remove하는 과정에서 node 탐색 작업이 선행되어야 하기 때문에, 시간이 O(n)만큼 소요될 수 있음. hash map의 value로 해당 node를 바로 삭제할 수는 없을까?
+
+<img src="https://github.com/moonimooni/images/blob/main/IMG_0188.jpg?raw=true" width=600 />
+
+<br/>
+
+## 뿌듯한 점
+- linked list와 hash를 결합해서 써보자! 하고 구현해보고 나서 인터넷을 뒤져보니 이런 방향이 정석인 것 같아서 뿌듯.
