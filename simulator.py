@@ -8,7 +8,7 @@ class CacheSimulator:
         self.hit_time = hit_time
         self.miss_time = miss_time
 
-    def find_cache(self, data, cache_map: dict, cache_used_order: deque([]), cache_size: int):
+    def implement_lru(self, data, cache_map: dict, cache_used_order: deque([]), cache_size: int):
         # 캐시에서 찾은 경우
         if data in cache_map:
             self.hit_count += 1
@@ -38,7 +38,7 @@ class CacheSimulator:
         cache_used_order = deque([])
 
         for stock in stocks:
-            self.find_cache(stock, cache_map, cache_used_order, size)
+            self.implement_lru(stock, cache_map, cache_used_order, size)
 
         result = {
             "cache size": size,
