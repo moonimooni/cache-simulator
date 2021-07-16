@@ -1,9 +1,5 @@
-autopep8==1.5.4
+certifi==2021.5.30
 Faker==8.10.1
-ipykernel==5.4.2
-ipython==7.19.0
-ipython-genutils==0.2.0
-isort==5.5.0
-python-dateutil==2.8.1
-six==1.15.0
+python-dateutil==2.8.2
+six==1.16.0
 text-unidecode==1.3
